@@ -67,8 +67,9 @@ export default function DashboardPage() {
   const [trend, setTrend] = useState<MonthlyTrendItem[]>([]);
   const [recentLedger, setRecentLedger] = useState<RecentLedgerItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [authChecked, setAuthChecked] = useState(false);
 
-  // Check user role: If member, redirect to /portal
+  // Check user role: If member, redirect to /portal; if not logged in, redirect to /login
   useEffect(() => {
     fetch('/api/auth/me')
       .then((res) => res.json())
@@ -77,9 +78,13 @@ export default function DashboardPage() {
           router.push('/login');
         } else if (data.user?.role === 'member') {
           router.push('/portal');
+        } else {
+          setAuthChecked(true);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        router.push('/login');
+      });
   }, [router]);
 
   // Modals
@@ -106,11 +111,19 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    // Initial fetch and auto-seed if empty
-    fetch('/api/auth/seed')
-      .then(() => fetchDashboardData())
-      .catch(() => fetchDashboardData());
-  }, []);
+    if (authChecked) {
+      fetchDashboardData();
+    }
+  }, [authChecked]);
+
+  if (!authChecked) {
+    return (
+      <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-3">
+        <div className="w-10 h-10 border-4 border-brand-500 border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs font-bold text-slate-400 tracking-wider uppercase">Loading Portal...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-6">

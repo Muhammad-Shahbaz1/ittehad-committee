@@ -67,6 +67,8 @@ export default function MembersPage() {
   const [loading, setLoading] = useState(true);
   const [targetMonth, setTargetMonth] = useState('');
 
+  const [authChecked, setAuthChecked] = useState(false);
+
   // Check user role
   useEffect(() => {
     fetch('/api/auth/me')
@@ -76,9 +78,13 @@ export default function MembersPage() {
           router.push('/login');
         } else if (data.user?.role !== 'admin') {
           router.push('/portal');
+        } else {
+          setAuthChecked(true);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        router.push('/login');
+      });
   }, [router]);
 
   // Expandable Member Details state
@@ -249,6 +255,15 @@ export default function MembersPage() {
     if (paidFilter === 'unpaid') return !m.isPaidForMonth;
     return true;
   });
+
+  if (!authChecked) {
+    return (
+      <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-3">
+        <div className="w-10 h-10 border-4 border-brand-500 border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs font-bold text-slate-400 tracking-wider uppercase">Loading Members...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-6">

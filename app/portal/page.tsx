@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   User,
   Phone,
@@ -39,15 +40,22 @@ interface MemberData {
 }
 
 export default function MemberPortalPage() {
+  const router = useRouter();
   const [member, setMember] = useState<MemberData | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeParchi, setActiveParchi] = useState<ParchiData | null>(null);
+  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
     fetch('/api/auth/me')
       .then((res) => res.json())
       .then((data) => {
-        if (data.authenticated && data.user?.memberId) {
+        if (!data.authenticated) {
+          router.push('/login');
+          return;
+        }
+        setAuthChecked(true);
+        if (data.user?.memberId) {
           fetch(`/api/members/${data.user.memberId}`)
             .then((r) => r.json())
             .then((mRes) => {
@@ -55,9 +63,11 @@ export default function MemberPortalPage() {
             });
         }
       })
-      .catch(() => {})
+      .catch(() => {
+        router.push('/login');
+      })
       .finally(() => setLoading(false));
-  }, []);
+  }, [router]);
 
   const handleShareReceipt = (p: MemberData['payments'][0]) => {
     if (!member) return;
@@ -97,6 +107,15 @@ export default function MemberPortalPage() {
     };
     setActiveParchi(parchiData);
   };
+
+  if (!authChecked || loading) {
+    return (
+      <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-3">
+        <div className="w-10 h-10 border-4 border-brand-500 border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs font-bold text-slate-400 tracking-wider uppercase">Loading Member Portal...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-6">
