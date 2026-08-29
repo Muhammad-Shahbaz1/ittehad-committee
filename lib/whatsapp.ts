@@ -71,6 +71,27 @@ Shukriya!
 _Ittehad Committee Management_`;
 }
 
+export function formatPasswordResetMessage(data: {
+  memberName: string;
+  phone: string;
+  newPassword: string;
+}): string {
+  return `*ITTEHAD WELFARE COMMITTEE — PASSWORD RESET*
+━━━━━━━━━━━━━━━━━━━━
+Moazzaz Member *${data.memberName}*,
+As-salamu alaykum!
+
+Aapki darkhwast par aapka Ittehad Committee Member Portal login password reset kar diya gaya hai.
+
+📱 *Login Mobile No:* ${data.phone}
+🔑 *Naya Password:* ${data.newPassword}
+
+🌐 *Portal Link:* https://ittehad-committee.vercel.app/login
+_Note: Login ke baad aap Settings me ja kar apna man-pasand password set kar sakte hain._
+
+_Ittehad Committee Management_`;
+}
+
 export function getWhatsAppShareUrl(phone: string, text: string): string {
   // Clean phone number: if starts with 03..., replace with 923...
   let cleanPhone = (phone || '').replace(/[^0-9]/g, '');
@@ -83,3 +104,4 @@ export function getWhatsAppShareUrl(phone: string, text: string): string {
   }
   return `https://api.whatsapp.com/send?text=${encodedText}`;
 }
+

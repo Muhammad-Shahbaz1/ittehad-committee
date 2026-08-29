@@ -20,10 +20,12 @@ import {
   Edit,
   AlertTriangle,
   X,
+  Key,
 } from 'lucide-react';
 import AddMemberModal from '@/components/AddMemberModal';
 import EditMemberModal from '@/components/EditMemberModal';
 import RecordPaymentModal from '@/components/RecordPaymentModal';
+import ResetPasswordModal from '@/components/ResetPasswordModal';
 import ParchiModal, { ParchiData } from '@/components/ParchiModal';
 import { useToast } from '@/components/ToastContext';
 import { formatMonthlyReminderMessage, getWhatsAppShareUrl } from '@/lib/whatsapp';
@@ -96,6 +98,10 @@ export default function MembersPage() {
   const [addMemberOpen, setAddMemberOpen] = useState(false);
   const [editMemberModalOpen, setEditMemberModalOpen] = useState(false);
   const [memberToEdit, setMemberToEdit] = useState<MemberItem | null>(null);
+
+  // Reset Password Modal
+  const [resetPasswordModalOpen, setResetPasswordModalOpen] = useState(false);
+  const [memberForPasswordReset, setMemberForPasswordReset] = useState<MemberItem | null>(null);
 
   // Delete Member Confirm Dialog
   const [memberToDelete, setMemberToDelete] = useState<MemberItem | null>(null);
@@ -430,6 +436,19 @@ export default function MembersPage() {
                       Pay
                     </button>
 
+                    {/* Quick Reset Password Icon */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setMemberForPasswordReset(member);
+                        setResetPasswordModalOpen(true);
+                      }}
+                      title="Reset Member Password"
+                      className="p-1.5 text-slate-400 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition"
+                    >
+                      <Key className="w-4 h-4" />
+                    </button>
+
                     {/* Quick Edit Icon */}
                     <button
                       onClick={(e) => {
@@ -494,20 +513,30 @@ export default function MembersPage() {
                               Rs. {memberDetails?.totalPaid.toLocaleString() || '0'}
                             </span>
                           </div>
-                          <div className="flex items-center justify-end gap-2">
+                          <div className="flex flex-wrap items-center justify-end gap-1.5">
+                            <button
+                              onClick={() => {
+                                setMemberForPasswordReset(member);
+                                setResetPasswordModalOpen(true);
+                              }}
+                              className="px-2.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-bold rounded-lg flex items-center gap-1"
+                            >
+                              <Key className="w-3.5 h-3.5" />
+                              Reset Pass
+                            </button>
                             <button
                               onClick={() => {
                                 setMemberToEdit(member);
                                 setEditMemberModalOpen(true);
                               }}
-                              className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center gap-1"
+                              className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center gap-1"
                             >
                               <Edit className="w-3.5 h-3.5" />
                               Edit Profile
                             </button>
                             <button
                               onClick={() => setMemberToDelete(member)}
-                              className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold rounded-lg flex items-center gap-1"
+                              className="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold rounded-lg flex items-center gap-1"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
                               Delete
@@ -719,7 +748,17 @@ export default function MembersPage() {
         }}
       />
 
+      <ResetPasswordModal
+        isOpen={resetPasswordModalOpen}
+        onClose={() => {
+          setResetPasswordModalOpen(false);
+          setMemberForPasswordReset(null);
+        }}
+        member={memberForPasswordReset}
+      />
+
       <ParchiModal parchi={activeParchi} onClose={() => setActiveParchi(null)} />
     </div>
   );
 }
+
