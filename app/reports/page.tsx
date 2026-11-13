@@ -127,7 +127,9 @@ export default function MeetingReportsPage() {
   }, [selectedYear, selectedMonth]);
 
   const handlePrint = () => {
-    window.print();
+    setTimeout(() => {
+      window.print();
+    }, 300);
   };
 
   const handleShareWhatsAppSummary = () => {
@@ -216,7 +218,7 @@ export default function MeetingReportsPage() {
           Compiling financial meeting report...
         </div>
       ) : report ? (
-        <div id="printable-parchi" className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-8 text-slate-900">
+        <div id="printable-report" className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-8 text-slate-900">
           
           {/* Formal Islamic & Committee Header */}
           <div className="text-center border-b-2 border-slate-900 pb-6">

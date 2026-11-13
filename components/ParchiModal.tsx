@@ -57,7 +57,10 @@ export default function ParchiModal({ parchi, onClose }: ParchiModalProps) {
   };
 
   const handlePrint = () => {
-    window.print();
+    // Small delay ensures the browser finishes rendering the modal before triggering print
+    setTimeout(() => {
+      window.print();
+    }, 300);
   };
 
   const handleWhatsAppDirectShare = () => {

@@ -39,22 +39,82 @@ body {
 
 /* Parchi & Reports Print Styles */
 @media print {
+  /* Hide everything on page first */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   body * {
-    visibility: hidden;
+    visibility: hidden !important;
   }
-  #printable-parchi, #printable-parchi * {
-    visibility: visible;
+
+  /* Show ONLY the printable receipt */
+  #printable-parchi,
+  #printable-parchi * {
+    visibility: visible !important;
   }
+
   #printable-parchi {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    padding: 20px;
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    background: #fff !important;
+    z-index: 99999 !important;
+    overflow: visible !important;
   }
-  .no-print {
+
+  /* Show ONLY the printable report */
+  #printable-report,
+  #printable-report * {
+    visibility: visible !important;
+  }
+
+  #printable-report {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    background: #fff !important;
+    z-index: 99999 !important;
+    overflow: visible !important;
+  }
+
+  /* Hide all non-print elements */
+  .no-print,
+  nav,
+  header,
+  footer,
+  button,
+  .fixed.inset-0 {
     display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* But show buttons INSIDE printable areas (they need visibility for layout) */
+  #printable-parchi button,
+  #printable-report button {
+    display: none !important;
+  }
+
+  /* Force white background everywhere */
+  * {
+    box-shadow: none !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm;
   }
 }
 
