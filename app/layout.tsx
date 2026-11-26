@@ -38,8 +38,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
         <ToastProvider>
-          <Navbar />
-          <main className="flex-1 pb-16">{children}</main>
+          <Navbar>{children}</Navbar>
         </ToastProvider>
 
         {/* Client-side Service Worker Registration */}
