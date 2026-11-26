@@ -197,25 +197,27 @@ export default function Navbar() {
               {installable && (
                 <button
                   onClick={handleInstallClick}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/40 rounded-lg hover:bg-brand-500/30 transition shadow-sm animate-pulse"
+                  title="Install App"
+                  className="flex items-center gap-1 px-2 py-1.5 text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/40 rounded-lg hover:bg-brand-500/30 transition shadow-sm"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  Install App
+                  <span className="hidden 2xl:inline">Install App</span>
                 </button>
               )}
 
               {user ? (
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1">
                   <div
                     onClick={() => setSettingsOpen(true)}
-                    className="flex items-center gap-2 bg-navy-800/80 px-2.5 py-1.5 rounded-lg border border-navy-700 cursor-pointer hover:bg-navy-700 transition"
+                    title={`${user.name} (${user.role})`}
+                    className="flex items-center gap-1.5 bg-navy-800/80 px-2 py-1.5 rounded-lg border border-navy-700 cursor-pointer hover:bg-navy-700 transition"
                   >
                     {user.role === 'admin' ? (
-                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                      <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                     ) : (
-                      <UserCircle className="w-4 h-4 text-brand-400" />
+                      <UserCircle className="w-4 h-4 text-brand-400 shrink-0" />
                     )}
-                    <div className="text-left">
+                    <div className="text-left hidden 2xl:block">
                       <p className="text-xs font-semibold text-white">{user.name}</p>
                       <p className="text-[9px] text-slate-400 capitalize">
                         {user.role === 'admin' ? 'Committee Head (Admin)' : 'Verified Member'}
