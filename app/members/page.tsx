@@ -410,7 +410,7 @@ export default function MembersPage() {
                   </div>
 
                   {/* Right Status & Action Pill */}
-                  <div className="flex items-center justify-between sm:justify-end gap-2.5 pt-2 sm:pt-0 border-t sm:border-0 border-slate-100">
+                  <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2 pt-2 sm:pt-0 border-t sm:border-0 border-slate-100">
                     {/* Monthly Paid / Unpaid Badge */}
                     <div className="flex items-center gap-2">
                       <span

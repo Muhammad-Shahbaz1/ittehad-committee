@@ -390,7 +390,7 @@ export default function MeetingReportsPage() {
             <p className="text-center text-xs font-bold uppercase tracking-wider text-slate-600 mb-8">
               Verification & Approval of Committee Executive Body
             </p>
-            <div className="grid grid-cols-3 gap-6 text-center text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-xs">
               <div className="space-y-8">
                 <div className="border-b border-slate-400 pb-1"></div>
                 <div>

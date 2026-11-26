@@ -119,12 +119,12 @@ export default function Navbar() {
   const adminNavItems = [
     { name: 'Dashboard', href: '/', icon: LayoutDashboard },
     { name: 'Members', href: '/members', icon: Users },
-    { name: 'Payments & Parchi', href: '/payments', icon: Receipt },
+    { name: 'Payments', href: '/payments', icon: Receipt },
     { name: 'Claims', href: '/claims', icon: HeartHandshake },
     { name: 'Donations', href: '/donations', icon: HandHeart },
-    { name: 'Fund Ledger', href: '/ledger', icon: BookOpenCheck },
-    { name: 'Meeting Reports', href: '/reports', icon: FileSpreadsheet },
-    { name: 'Announcements', href: '/announcements', icon: Bell },
+    { name: 'Ledger', href: '/ledger', icon: BookOpenCheck },
+    { name: 'Reports', href: '/reports', icon: FileSpreadsheet },
+    { name: 'Notices', href: '/announcements', icon: Bell },
   ];
 
   const memberNavItems = [
@@ -151,25 +151,27 @@ export default function Navbar() {
             {/* Brand Logo & Name */}
             <Link
               href={user?.role === 'member' ? '/portal' : '/'}
-              className="flex items-center gap-2.5 group shrink-0"
+              className="flex items-center gap-2 group shrink-0 min-w-0"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform shrink-0">
                 <span className="text-white font-black text-base">SB</span>
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="font-bold text-sm sm:text-base leading-tight tracking-tight text-white flex items-center gap-1.5">
-                  <span className="hidden xl:inline">Shnai Bunerwal Youth Welfare Organization</span>
-                  <span className="xl:hidden">Shnai Bunerwal Welfare</span>
-                  <span className="text-[9px] uppercase tracking-widest font-bold px-1.5 py-0.5 bg-brand-500/20 text-brand-300 rounded-full border border-brand-500/30">
-                    {user?.role === 'member' ? 'Member Portal' : 'PWA'}
+                  <span className="hidden 2xl:inline">Shnai Bunerwal Youth Welfare Organization</span>
+                  <span className="2xl:hidden truncate max-w-[165px] sm:max-w-[210px] lg:max-w-[170px]">Shnai Bunerwal</span>
+                  <span className="text-[9px] uppercase tracking-widest font-bold px-1.5 py-0.5 bg-brand-500/20 text-brand-300 rounded-full border border-brand-500/30 shrink-0">
+                    {user?.role === 'member' ? 'Member' : 'PWA'}
                   </span>
                 </div>
-                <p className="text-[10px] text-slate-400">Shnai Bunerwal Youth Welfare Organization</p>
+                <p className="hidden sm:block text-[10px] text-slate-400 truncate max-w-[180px] 2xl:max-w-none">
+                  Youth Welfare Organization
+                </p>
               </div>
             </Link>
 
             {/* Desktop Navigation (Role-Filtered) */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href;
@@ -177,13 +179,13 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                    className={`flex items-center gap-1 px-2 xl:px-2.5 py-1.5 rounded-lg text-[11px] xl:text-xs font-semibold whitespace-nowrap transition-all ${
                       isActive
                         ? 'bg-brand-600 text-white shadow-sm shadow-brand-600/30'
                         : 'text-slate-300 hover:text-white hover:bg-navy-800'
                     }`}
                   >
-                    <Icon className="w-3.5 h-3.5" />
+                    <Icon className="w-3.5 h-3.5 shrink-0" />
                     {item.name}
                   </Link>
                 );
@@ -191,7 +193,7 @@ export default function Navbar() {
             </nav>
 
             {/* Right Action Icons & User Status */}
-            <div className="hidden sm:flex items-center gap-2.5">
+            <div className="hidden lg:flex items-center gap-1.5 shrink-0">
               {installable && (
                 <button
                   onClick={handleInstallClick}

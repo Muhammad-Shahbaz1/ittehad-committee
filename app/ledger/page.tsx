@@ -234,7 +234,47 @@ export default function LedgerPage() {
           <h3 className="text-base font-bold text-slate-700">No Ledger Records</h3>
         </div>
       ) : (
-        <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div className="space-y-3">
+          {/* Mobile Card View */}
+          <div className="md:hidden space-y-3">
+            {transactions.map((t) => (
+              <div key={t._id} className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-2.5">
+                <div className="flex items-start justify-between gap-2">
+                  <span
+                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10px] font-black uppercase ${
+                      t.type === 'credit'
+                        ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                        : 'bg-rose-100 text-rose-800 border border-rose-200'
+                    }`}
+                  >
+                    {t.type === 'credit' ? 'Credit (Jama)' : 'Debit (Kharch)'}
+                  </span>
+                  <span className={`font-black text-base ${t.type === 'credit' ? 'text-emerald-700' : 'text-rose-700'}`}>
+                    {t.type === 'credit' ? '+' : '-'} Rs. {t.amount.toLocaleString()}
+                  </span>
+                </div>
+                <p className="text-xs font-semibold text-slate-800">{t.description}</p>
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-[11px] text-slate-500">
+                  <span>
+                    {new Date(t.date).toLocaleDateString('en-GB', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </span>
+                  <button
+                    onClick={() => setItemToDelete(t)}
+                    className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View */}
+          <div className="hidden md:block bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -300,6 +340,7 @@ export default function LedgerPage() {
                 ))}
               </tbody>
             </table>
+          </div>
           </div>
         </div>
       )}
