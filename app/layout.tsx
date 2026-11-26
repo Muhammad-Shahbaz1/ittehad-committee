@@ -4,13 +4,13 @@ import Navbar from '@/components/Navbar';
 import { ToastProvider } from '@/components/ToastContext';
 
 export const metadata: Metadata = {
-  title: 'Ittehad Committee Management System (PWA)',
+  title: 'Shnai Bunerwal Youth Welfare Organization (PWA)',
   description: 'Digital Parchi, Membership, and Funeral Support Claims Portal',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Ittehad App',
+    title: 'Shnai Bunerwal',
   },
   icons: {
     icon: '/icon.svg',

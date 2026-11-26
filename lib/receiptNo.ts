@@ -2,7 +2,7 @@ import { Payment } from '@/models';
 
 export async function generateReceiptNo(): Promise<string> {
   const currentYear = new Date().getFullYear();
-  const prefix = `ITC-${currentYear}-`;
+  const prefix = `SBYWO-${currentYear}-`;
 
   // Find the highest existing receipt number for the current year
   const lastPayment = await Payment.findOne({

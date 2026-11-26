@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ittehad-committee-cache-v1';
+const CACHE_NAME = 'sbywo-welfare-cache-v1';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',

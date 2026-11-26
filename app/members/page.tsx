@@ -244,7 +244,7 @@ export default function MembersPage() {
       memberName: m.name,
       phone: m.phone,
       month: targetMonth || 'This Month',
-      amount: 300,
+      amount: 100,
     });
     const url = getWhatsAppShareUrl(m.phone, text);
     window.open(url, '_blank');

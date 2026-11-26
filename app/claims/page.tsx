@@ -139,9 +139,9 @@ export default function ClaimsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-6">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-slate-900 to-rose-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="bg-gradient-to-r from-navy-950 via-navy-900 to-brand-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-navy-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-rose-500/20 text-rose-300 rounded-full text-xs font-semibold border border-rose-500/30 mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-500/20 text-brand-300 rounded-full text-xs font-semibold border border-brand-500/30 mb-2">
             <HeartHandshake className="w-3.5 h-3.5" />
             Kafan-Dafan & Funeral Support
           </div>
@@ -155,11 +155,32 @@ export default function ClaimsPage() {
 
         <button
           onClick={() => setClaimModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-rose-600/30 transition transform active:scale-95"
+          className="flex items-center gap-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-600/30 transition transform active:scale-95"
         >
           <PlusCircle className="w-4 h-4" />
           File Funeral Claim
         </button>
+      </div>
+
+      {/* Member Funeral Benefits Policy */}
+      <div className="bg-white rounded-2xl p-4 sm:p-5 border border-brand-200/80 shadow-sm">
+        <p className="text-[11px] font-bold uppercase tracking-wider text-brand-700 mb-3">
+          Official Member Benefits Policy (Kafan-Dafan & Mayet Transport)
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="p-3 bg-brand-50/70 border border-brand-200 rounded-xl flex items-center justify-between">
+            <span className="text-xs font-bold text-navy-900">Mayet Transport (Lejane ke liye)</span>
+            <span className="text-sm font-black text-brand-700">Rs. 100,000</span>
+          </div>
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
+            <span className="text-xs font-bold text-navy-900">Karachi Kafan-Dafan (Adults / Barhon)</span>
+            <span className="text-sm font-black text-navy-950">Rs. 20,000</span>
+          </div>
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
+            <span className="text-xs font-bold text-navy-900">Karachi Kafan-Dafan (Children / Bachon)</span>
+            <span className="text-sm font-black text-navy-950">Rs. 10,000</span>
+          </div>
+        </div>
       </div>
 
       {/* Summary Metrics */}
@@ -167,9 +188,9 @@ export default function ClaimsPage() {
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
           <div>
             <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Claims Processed</p>
-            <h3 className="text-2xl font-black text-slate-900 mt-1">{claims.length} Claims</h3>
+            <h3 className="text-2xl font-black text-navy-950 mt-1">{claims.length} Claims</h3>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-slate-100 text-navy-900 flex items-center justify-center">
             <FileText className="w-5 h-5" />
           </div>
         </div>
@@ -177,9 +198,9 @@ export default function ClaimsPage() {
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
           <div>
             <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Support Disbursed</p>
-            <h3 className="text-2xl font-black text-rose-700 mt-1">Rs. {totalPayout.toLocaleString()}</h3>
+            <h3 className="text-2xl font-black text-brand-700 mt-1">Rs. {totalPayout.toLocaleString()}</h3>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center">
             <HeartHandshake className="w-5 h-5" />
           </div>
         </div>
@@ -192,7 +213,7 @@ export default function ClaimsPage() {
         </div>
       ) : claims.length === 0 ? (
         <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-sm space-y-3">
-          <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-400 flex items-center justify-center mx-auto">
+          <div className="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mx-auto">
             <HeartHandshake className="w-6 h-6" />
           </div>
           <h3 className="text-base font-bold text-slate-700">No Funeral Claims Recorded</h3>
@@ -216,7 +237,7 @@ export default function ClaimsPage() {
                     <div>
                       <div className="flex items-center gap-2">
                         <h3 className="font-black text-base text-navy-950">Marhoom {deceased}</h3>
-                        <span className="px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-200 rounded text-[10px] font-bold">
+                        <span className="px-2 py-0.5 bg-brand-50 text-brand-700 border border-brand-200 rounded text-[10px] font-bold">
                           {relation}
                         </span>
                       </div>
@@ -227,7 +248,7 @@ export default function ClaimsPage() {
 
                     <div className="text-right">
                       <span className="text-xs font-bold text-slate-400 block uppercase">Disbursed</span>
-                      <span className="font-black text-rose-700 text-base">
+                      <span className="font-black text-brand-700 text-base">
                         Rs. {c.amountPaid.toLocaleString()}
                       </span>
                     </div>

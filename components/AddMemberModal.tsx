@@ -81,7 +81,7 @@ export default function AddMemberModal({ isOpen, onClose, onSuccess }: AddMember
           phone,
           cnic,
           type: 'entry',
-          amount: 1000,
+          amount: 500,
           date: new Date().toLocaleDateString('en-GB', {
             day: 'numeric',
             month: 'short',
@@ -190,7 +190,7 @@ export default function AddMemberModal({ isOpen, onClose, onSuccess }: AddMember
           {/* Entry Fee Checkbox */}
           <div className="p-3.5 bg-brand-50/70 border border-brand-200/80 rounded-2xl flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold text-brand-900">Collect Entry Fee (Rs. 1,000)</p>
+              <p className="text-xs font-bold text-brand-900">Collect Entry Fee (Rs. 500)</p>
               <p className="text-[11px] text-brand-700">Auto-creates Dakhla Fee receipt & credits ledger</p>
             </div>
             <input

@@ -28,7 +28,7 @@ export default function RecordPaymentModal({
   const [members, setMembers] = useState<MemberOption[]>([]);
   const [memberId, setMemberId] = useState(defaultMemberId || '');
   const [type, setType] = useState<'monthly' | 'entry' | 'extra'>('monthly');
-  const [amount, setAmount] = useState<number>(300);
+  const [amount, setAmount] = useState<number>(100);
   const [monthCovered, setMonthCovered] = useState<string>(
     new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })
   );
@@ -60,9 +60,9 @@ export default function RecordPaymentModal({
   const handleTypeChange = (newType: 'monthly' | 'entry' | 'extra') => {
     setType(newType);
     if (newType === 'monthly') {
-      setAmount(300);
+      setAmount(100);
     } else if (newType === 'entry') {
-      setAmount(1000);
+      setAmount(500);
     } else {
       setAmount(500);
     }
@@ -189,7 +189,7 @@ export default function RecordPaymentModal({
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                Monthly (Rs 300)
+                Monthly (Rs 100)
               </button>
               <button
                 type="button"
@@ -200,7 +200,7 @@ export default function RecordPaymentModal({
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                Entry Fee (Rs 1,000)
+                Entry Fee (Rs 500)
               </button>
               <button
                 type="button"

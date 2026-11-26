@@ -132,7 +132,7 @@ export default function DashboardPage() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-500/20 text-brand-300 rounded-full text-xs font-semibold border border-brand-500/30 mb-2">
             <Sparkles className="w-3.5 h-3.5" />
-            Ittehad Welfare Committee • Kafan-Dafan Fund
+            Shnai Bunerwal Youth Welfare Organization • Kafan-Dafan Fund
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
             Financial & Committee Overview

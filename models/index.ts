@@ -5,3 +5,4 @@ export { Claim, type IClaim } from './Claim';
 export { FundLedger, type IFundLedger } from './FundLedger';
 export { User, type IUser } from './User';
 export { Announcement, type IAnnouncement } from './Announcement';
+export { Donation, type IDonation } from './Donation';

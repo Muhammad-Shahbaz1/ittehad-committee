@@ -183,7 +183,7 @@ export default function PaymentsPage() {
                 typeFilter === 'monthly' ? 'bg-brand-600 text-white shadow-sm' : 'text-slate-600'
               }`}
             >
-              Monthly (Rs 300)
+              Monthly (Rs 100)
             </button>
             <button
               onClick={() => setTypeFilter('entry')}
@@ -191,7 +191,7 @@ export default function PaymentsPage() {
                 typeFilter === 'entry' ? 'bg-brand-600 text-white shadow-sm' : 'text-slate-600'
               }`}
             >
-              Entry (Rs 1,000)
+              Entry (Rs 500)
             </button>
             <button
               onClick={() => setTypeFilter('extra')}

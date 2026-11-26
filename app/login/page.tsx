@@ -66,8 +66,8 @@ export default function LoginPage() {
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center shadow-xl shadow-brand-500/20 mx-auto mb-4 border border-brand-300/30">
           <Building2 className="w-8 h-8 text-white" />
         </div>
-        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase">
-          Ittehad Committee
+        <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white uppercase">
+          Shnai Bunerwal Youth Welfare Organization
         </h2>
         <p className="mt-1 text-xs text-brand-300 font-semibold tracking-wider uppercase">
           Welfare & Funeral Support PWA Portal

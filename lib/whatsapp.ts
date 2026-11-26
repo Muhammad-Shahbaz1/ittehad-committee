@@ -20,7 +20,7 @@ export function formatReceiptWhatsAppMessage(data: ReceiptShareData): string {
       ? `Mahana Fee (${data.monthCovered || 'Monthly'})`
       : 'Atiya / Extra Imdad';
 
-  return `*ITTEHAD WELFARE COMMITTEE*
+  return `*SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION*
 *DIGITAL RECEIPT (PARCHI)*
 ━━━━━━━━━━━━━━━━━━━━
 📄 *Receipt No:* ${data.receiptNo}
@@ -31,7 +31,7 @@ export function formatReceiptWhatsAppMessage(data: ReceiptShareData): string {
 📅 *Date:* ${data.date}
 ━━━━━━━━━━━━━━━━━━━━
 ✅ _Shukriya! Aapki adaigi kamyabi se record ho chuki hai._
-🌐 _Ittehad Committee Portal_`;
+🌐 _Shnai Bunerwal Youth Welfare Organization Portal_`;
 }
 
 export function formatDeathAnnouncementMessage(data: {
@@ -42,7 +42,7 @@ export function formatDeathAnnouncementMessage(data: {
   amountPaid: number;
 }): string {
   return `*إِنَّا لِلَّٰهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ*
-*ITTEHAD WELFARE COMMITTEE — ILAAN-E-WAFAT*
+*SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION — ILAAN-E-WAFAT*
 ━━━━━━━━━━━━━━━━━━━━
 Afsosnak khabar di jati hai ke hamare moazzaz member *${data.memberName}* ke ${data.relation || 'Azeez'} *${data.deceasedName}* ka inteqal ho gaya hai.
 
@@ -51,7 +51,7 @@ Afsosnak khabar di jati hai ke hamare moazzaz member *${data.memberName}* ke ${d
 
 ━━━━━━━━━━━━━━━━━━━━
 🤝 *Committee Kafan-Dafan Imdad:* Rs. ${data.amountPaid.toLocaleString()}
-_Ittehad Welfare Committee Administration_`;
+_Shnai Bunerwal Youth Welfare Organization Administration_`;
 }
 
 export function formatMonthlyReminderMessage(data: {
@@ -60,15 +60,15 @@ export function formatMonthlyReminderMessage(data: {
   month: string;
   amount: number;
 }): string {
-  return `*ITTEHAD WELFARE COMMITTEE — REMINDER*
+  return `*SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION — REMINDER*
 ━━━━━━━━━━━━━━━━━━━━
 Moazzaz Member *${data.memberName}*,
 As-salamu alaykum!
 
-Baraye mehrbani mahe *${data.month}* ki mahana fee *Rs. ${data.amount.toLocaleString()}* jald az jald committee kosh me jama karwayein taake welfari silsila jari rahe.
+Baraye mehrbani mahe *${data.month}* ki mahana fee *Rs. ${data.amount.toLocaleString()}* jald az jald organization fund me jama karwayein taake welfari silsila jari rahe.
 
 Shukriya!
-_Ittehad Committee Management_`;
+_Shnai Bunerwal Youth Welfare Organization Management_`;
 }
 
 export function formatPasswordResetMessage(data: {
@@ -76,20 +76,19 @@ export function formatPasswordResetMessage(data: {
   phone: string;
   newPassword: string;
 }): string {
-  return `*ITTEHAD WELFARE COMMITTEE — PASSWORD RESET*
+  return `*SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION — PASSWORD RESET*
 ━━━━━━━━━━━━━━━━━━━━
 Moazzaz Member *${data.memberName}*,
 As-salamu alaykum!
 
-Aapki darkhwast par aapka Ittehad Committee Member Portal login password reset kar diya gaya hai.
+Aapki darkhwast par aapka Shnai Bunerwal Youth Welfare Organization Member Portal login password reset kar diya gaya hai.
 
 📱 *Login Mobile No:* ${data.phone}
 🔑 *Naya Password:* ${data.newPassword}
 
-🌐 *Portal Link:* https://ittehad-committee.vercel.app/login
 _Note: Login ke baad aap Settings me ja kar apna man-pasand password set kar sakte hain._
 
-_Ittehad Committee Management_`;
+_Shnai Bunerwal Youth Welfare Organization Management_`;
 }
 
 export function getWhatsAppShareUrl(phone: string, text: string): string {

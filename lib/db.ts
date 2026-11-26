@@ -34,7 +34,7 @@ export async function connectToDatabase() {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
-      serverSelectionTimeoutMS: 10000,
+      serverSelectionTimeoutMS: 25000,
       tls: true,
       tlsAllowInvalidCertificates: true,
     };

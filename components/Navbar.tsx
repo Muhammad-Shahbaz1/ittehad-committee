@@ -20,6 +20,7 @@ import {
   UserCheck,
   FileSpreadsheet,
   Settings,
+  HandHeart,
 } from 'lucide-react';
 import SettingsModal from './SettingsModal';
 
@@ -64,7 +65,7 @@ export default function Navbar() {
           // If member tries to access admin-only root pages, redirect to /portal
           if (
             data.user.role === 'member' &&
-            ['/', '/members', '/payments', '/claims', '/ledger', '/reports'].includes(pathname)
+            ['/', '/members', '/payments', '/claims', '/donations', '/ledger', '/reports'].includes(pathname)
           ) {
             router.push('/portal');
           }
@@ -120,6 +121,7 @@ export default function Navbar() {
     { name: 'Members', href: '/members', icon: Users },
     { name: 'Payments & Parchi', href: '/payments', icon: Receipt },
     { name: 'Claims', href: '/claims', icon: HeartHandshake },
+    { name: 'Donations', href: '/donations', icon: HandHeart },
     { name: 'Fund Ledger', href: '/ledger', icon: BookOpenCheck },
     { name: 'Meeting Reports', href: '/reports', icon: FileSpreadsheet },
     { name: 'Announcements', href: '/announcements', icon: Bell },
@@ -152,16 +154,17 @@ export default function Navbar() {
               className="flex items-center gap-2.5 group shrink-0"
             >
               <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
-                <span className="text-white font-black text-lg">IC</span>
+                <span className="text-white font-black text-base">SB</span>
               </div>
               <div>
-                <div className="font-bold text-base leading-tight tracking-tight text-white flex items-center gap-1.5">
-                  Ittehad Committee
+                <div className="font-bold text-sm sm:text-base leading-tight tracking-tight text-white flex items-center gap-1.5">
+                  <span className="hidden xl:inline">Shnai Bunerwal Youth Welfare Organization</span>
+                  <span className="xl:hidden">Shnai Bunerwal Welfare</span>
                   <span className="text-[9px] uppercase tracking-widest font-bold px-1.5 py-0.5 bg-brand-500/20 text-brand-300 rounded-full border border-brand-500/30">
                     {user?.role === 'member' ? 'Member Portal' : 'PWA'}
                   </span>
                 </div>
-                <p className="text-[10px] text-slate-400">Welfare & Kafan Dafan Portal</p>
+                <p className="text-[10px] text-slate-400">Shnai Bunerwal Youth Welfare Organization</p>
               </div>
             </Link>
 

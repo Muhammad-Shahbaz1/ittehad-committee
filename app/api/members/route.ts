@@ -117,14 +117,14 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // If collectEntryFee is true (Rs. 1000 default)
+    // If collectEntryFee is true (Rs. 500 default)
     let receiptData = null;
     if (collectEntryFee) {
       const receiptNo = await generateReceiptNo();
       const entryPayment = await Payment.create({
         memberId: newMember._id,
         type: 'entry',
-        amount: 1000,
+        amount: 500,
         date: new Date(),
         receiptNo,
         monthCovered: 'Joining',
@@ -132,7 +132,7 @@ export async function POST(req: NextRequest) {
 
       await FundLedger.create({
         type: 'credit',
-        amount: 1000,
+        amount: 500,
         date: new Date(),
         reference: entryPayment._id,
         description: `Entry Fee (Dakhla Fee) from ${newMember.name} (${receiptNo})`,

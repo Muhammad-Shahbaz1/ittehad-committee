@@ -127,9 +127,9 @@ export default function RecordClaimModal({ isOpen, onClose, onSuccess }: RecordC
       <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden border border-slate-200 my-8">
         
         {/* Header */}
-        <div className="bg-slate-900 px-6 py-4 flex items-center justify-between text-white">
+        <div className="bg-navy-900 px-6 py-4 flex items-center justify-between text-white">
           <div className="flex items-center gap-2">
-            <HeartHandshake className="w-5 h-5 text-rose-400" />
+            <HeartHandshake className="w-5 h-5 text-brand-400" />
             <h3 className="font-bold text-base">Record Funeral Claim (Kafan Dafan Imdad)</h3>
           </div>
           <button
@@ -290,20 +290,25 @@ export default function RecordClaimModal({ isOpen, onClose, onSuccess }: RecordC
                 </label>
               </div>
 
-              {/* Quick Preset Buttons */}
-              <div className="grid grid-cols-4 gap-1.5 mb-2">
-                {[10000, 15000, 20000, 25000].map((preset) => (
+              {/* Official Benefit Tier Buttons */}
+              <div className="grid grid-cols-3 gap-2 mb-2">
+                {[
+                  { label: 'Child (Karachi)', amount: 10000 },
+                  { label: 'Adult (Karachi)', amount: 20000 },
+                  { label: 'Mayet Transport', amount: 100000 },
+                ].map((tier) => (
                   <button
-                    key={preset}
+                    key={tier.amount}
                     type="button"
-                    onClick={() => setAmountPaid(preset)}
-                    className={`py-1.5 px-2 rounded-lg text-[11px] font-bold border transition ${
-                      amountPaid === preset
-                        ? 'bg-rose-700 text-white border-rose-700 shadow-sm'
+                    onClick={() => setAmountPaid(tier.amount)}
+                    className={`py-2 px-2 rounded-xl text-[11px] font-bold border transition flex flex-col items-center ${
+                      amountPaid === tier.amount
+                        ? 'bg-brand-600 text-white border-brand-600 shadow-sm'
                         : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                     }`}
                   >
-                    Rs. {preset.toLocaleString()}
+                    <span>{tier.label}</span>
+                    <span className="text-[10px] opacity-90">Rs. {tier.amount.toLocaleString()}</span>
                   </button>
                 ))}
               </div>
@@ -314,7 +319,7 @@ export default function RecordClaimModal({ isOpen, onClose, onSuccess }: RecordC
                 onChange={(e) => setAmountPaid(Number(e.target.value))}
                 min={0}
                 placeholder="Enter custom amount or 0"
-                className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-rose-950 focus:ring-2 focus:ring-brand-500 focus:outline-none"
+                className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-navy-950 focus:ring-2 focus:ring-brand-500 focus:outline-none"
               />
               <p className="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
                 <Info className="w-3.5 h-3.5 shrink-0" />
@@ -348,7 +353,7 @@ export default function RecordClaimModal({ isOpen, onClose, onSuccess }: RecordC
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 py-2.5 px-4 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-sm transition shadow-md shadow-rose-700/30 flex items-center justify-center gap-2"
+                className="flex-1 py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition shadow-md shadow-brand-600/30 flex items-center justify-center gap-2"
               >
                 {loading ? 'Recording...' : 'Disburse & Record Claim'}
               </button>

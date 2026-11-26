@@ -96,7 +96,7 @@ export default function AnnouncementsPage() {
   };
 
   const handleWhatsAppShare = (a: AnnouncementItem) => {
-    const formatted = `*ITTEHAD WELFARE COMMITTEE — ANNOUNCEMENT*
+    const formatted = `*SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION — ANNOUNCEMENT*
 ━━━━━━━━━━━━━━━━━━━━
 📢 *${a.title || 'Important Notice'}*
 
@@ -104,7 +104,7 @@ ${a.message}
 
 📅 Date: ${new Date(a.date).toLocaleDateString('en-GB')}
 ━━━━━━━━━━━━━━━━━━━━
-_Ittehad Welfare Committee Management_`;
+_Shnai Bunerwal Youth Welfare Organization Management_`;
 
     const url = getWhatsAppShareUrl('', formatted);
     window.open(url, '_blank');

@@ -135,7 +135,7 @@ export default function MeetingReportsPage() {
   const handleShareWhatsAppSummary = () => {
     if (!report) return;
     const msg =
-      `📋 *ITTEHAD COMMITTEE — FINANCIAL MEETING REPORT*\n` +
+      `📋 *SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION — FINANCIAL MEETING REPORT*\n` +
       `🗓️ *Period:* ${report.periodTitle}\n` +
       `👥 *Active Members:* ${report.summary.totalMembers}\n\n` +
       `📥 *TOTAL INFLOW (Jama):* Rs. ${report.summary.totalInflow.toLocaleString()}\n` +
@@ -144,8 +144,8 @@ export default function MeetingReportsPage() {
       `   • Atiya / Extra: Rs. ${report.summary.extraDonationsTotal.toLocaleString()}\n\n` +
       `📤 *TOTAL OUTFLOW (Kafan-Dafan Kharch):* Rs. ${report.summary.totalOutflow.toLocaleString()} (${report.claims.length} Claims)\n\n` +
       `💰 *NET SURPLUS/DEFICIT FOR PERIOD:* Rs. ${report.summary.netPeriodBalance.toLocaleString()}\n` +
-      `🏦 *CURRENT COMMITTEE NET BALANCE:* Rs. ${report.summary.overallNetBalance.toLocaleString()}\n\n` +
-      `_Official Digital Audit Record — Ittehad Committee Welfare Portal_`;
+      `🏦 *CURRENT ORGANIZATION NET BALANCE:* Rs. ${report.summary.overallNetBalance.toLocaleString()}\n\n` +
+      `_Official Digital Audit Record — Shnai Bunerwal Youth Welfare Organization Portal_`;
 
     const url = getWhatsAppShareUrl('', msg);
     window.open(url, '_blank');
@@ -225,8 +225,8 @@ export default function MeetingReportsPage() {
             <p className="text-sm font-serif text-slate-600 mb-1">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
             <div className="flex items-center justify-center gap-2.5 mb-1">
               <Building2 className="w-7 h-7 text-brand-700" />
-              <h2 className="text-3xl font-black text-navy-950 uppercase tracking-tight">
-                ITTEHAD COMMITTEE WELFARE & FUNERAL FUND
+              <h2 className="text-2xl sm:text-3xl font-black text-navy-950 uppercase tracking-tight">
+                SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION
               </h2>
             </div>
             <p className="text-xs font-bold text-brand-800 uppercase tracking-widest">
@@ -395,7 +395,7 @@ export default function MeetingReportsPage() {
                 <div className="border-b border-slate-400 pb-1"></div>
                 <div>
                   <p className="font-bold text-slate-900">Sadr (President)</p>
-                  <p className="text-[10px] text-slate-500">Ittehad Welfare Committee</p>
+                  <p className="text-[10px] text-slate-500">Shnai Bunerwal Youth Welfare Organization</p>
                 </div>
               </div>
 
@@ -403,7 +403,7 @@ export default function MeetingReportsPage() {
                 <div className="border-b border-slate-400 pb-1"></div>
                 <div>
                   <p className="font-bold text-slate-900">General Secretary</p>
-                  <p className="text-[10px] text-slate-500">Ittehad Welfare Committee</p>
+                  <p className="text-[10px] text-slate-500">Shnai Bunerwal Youth Welfare Organization</p>
                 </div>
               </div>
 

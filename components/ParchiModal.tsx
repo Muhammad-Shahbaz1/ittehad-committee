@@ -97,9 +97,9 @@ export default function ParchiModal({ parchi, onClose }: ParchiModalProps) {
           <div className="text-center border-b-2 border-dashed border-slate-200 pb-5 pr-8">
             <p className="text-sm font-serif text-slate-600 mb-1">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
             <div className="flex items-center justify-center gap-2 mb-1">
-              <Building2 className="w-6 h-6 text-brand-700" />
-              <h2 className="text-2xl font-black tracking-tight text-navy-950 uppercase">
-                ITTEHAD COMMITTEE
+              <Building2 className="w-6 h-6 text-brand-700 shrink-0" />
+              <h2 className="text-lg sm:text-xl font-black tracking-tight text-navy-950 uppercase leading-tight">
+                SHNAI BUNERWAL YOUTH WELFARE ORGANIZATION
               </h2>
             </div>
             <p className="text-xs font-semibold text-brand-700 uppercase tracking-widest">
@@ -173,7 +173,7 @@ export default function ParchiModal({ parchi, onClose }: ParchiModalProps) {
             <div className="mt-6 pt-4 border-t border-slate-200 flex justify-between items-end text-[11px] text-slate-500">
               <div>
                 <p className="font-semibold text-slate-700">Digitally Verified Document</p>
-                <p>Ittehad Welfare Committee Online Portal</p>
+                <p>Shnai Bunerwal Youth Welfare Organization Portal</p>
               </div>
               <div className="border border-brand-600 text-brand-800 px-3 py-1 rounded rotate-[-4deg] font-bold text-[10px] uppercase bg-brand-50/50">
                 Official Parchi

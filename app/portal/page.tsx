@@ -144,6 +144,30 @@ export default function MemberPortalPage() {
         </div>
       </div>
 
+      {/* Member Benefits Policy */}
+      <div className="bg-white rounded-3xl p-6 border border-brand-200/80 shadow-sm space-y-3">
+        <h3 className="text-base font-bold text-navy-950">
+          Member Benefits (Kafan-Dafan & Mayet Support)
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="p-3.5 bg-brand-50 border border-brand-200 rounded-2xl">
+            <p className="text-[11px] font-bold text-brand-700 uppercase">Mayet Transport</p>
+            <p className="text-lg font-black text-navy-950 mt-0.5">Rs. 100,000</p>
+            <p className="text-[11px] text-slate-500">Mayet ko lejane ke liye</p>
+          </div>
+          <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-2xl">
+            <p className="text-[11px] font-bold text-slate-600 uppercase">Karachi (Adults)</p>
+            <p className="text-lg font-black text-navy-950 mt-0.5">Rs. 20,000</p>
+            <p className="text-[11px] text-slate-500">Barhon ke warsa ke liye</p>
+          </div>
+          <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-2xl">
+            <p className="text-[11px] font-bold text-slate-600 uppercase">Karachi (Children)</p>
+            <p className="text-lg font-black text-navy-950 mt-0.5">Rs. 10,000</p>
+            <p className="text-[11px] text-slate-500">Bachon ke kafan-dafan ke liye</p>
+          </div>
+        </div>
+      </div>
+
       {/* Dependents Card */}
       <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-4">
         <h3 className="text-base font-bold text-navy-950 flex items-center gap-2">
